@@ -19,6 +19,27 @@ const addEvents = async (req, res) => {
     }
 }
 
+
+const showEvents = async (req, res) => {
+    try {
+        const { name } = req.body;
+        const events = await EventsModel.find({name}); 
+        res.status(201)
+            .json({
+                events:yes,
+                success: true
+            })
+          
+    } catch (err) {
+        res.status(500)
+            .json({
+                message: err,
+                success: false
+            })
+    }
+}
+
 module.exports = {
-    addEvents
+    addEvents,
+    showEvents
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes ,Route} from 'react-router-dom';
 import {Home,EventList,EventDetails} from "../pages";
+import {About}from "../pages/About/About"
 import { LoginAsOrganizer,LoginAsFaculty,LoginAsAttendee} from "../pages/Login";
 import { RegisterAsOrganizer,RegisterAsFaculty,RegisterAsAttendee} from "../pages/Register";
 import {Login} from "../pages/Login";
@@ -11,6 +12,7 @@ export const AllRoutes = () => {
   return (
     <Routes>
         <Route path='/' end element={<Home/>}/>
+        <Route path='/about' end element={<About/>}/>
         <Route path='/eventList'  element={<EventList/>}/>
         <Route path='/eventDetails'  element={<EventDetails/>}/>
         <Route path='/login' element={<Login />}>

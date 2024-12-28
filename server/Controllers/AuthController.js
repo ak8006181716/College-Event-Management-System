@@ -1,3 +1,4 @@
+const nodemailer = require("nodemailer");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const OrganizersModel = require("../Models/Organizers");
@@ -5,6 +6,45 @@ const FeedbackModel = require("../Models/Feedback");
 const FacultyModel = require("../Models/Faculty");
 const EventsModel = require("../Models/Events");
 const AttendeesModel = require('../Models/Attendees');
+
+
+ async function hellos(email,userName) {
+
+
+    const transporter = nodemailer.createTransport({
+        service:"gmail",
+        host: "smtp.gmail.com",
+        port: 465,
+        secure: true, // true for port 465, false for other ports
+        auth: {
+          user: "Eventora123@gmail.com", //the in this i am using gmailId is "eventora123@gmail.com"
+          pass: "migl quhl hotv uipv", // the password created by the aap password from gmail security
+        },
+      });
+    const mailoption = {
+        from: {
+            name:"EventOra",
+            address:"EventOra"
+        }, // sender address
+        to: email, // list of receivers/one receiver
+        subject: `Welcome to EventOra – Registration Successful!`, // Subject line
+        html: `<h1>Dear ${userName},</h1><br>We are thrilled to welcome you to EventOra! Your registration has been successfully completed, and you're now part of an exciting community of event organizers and the participants.<br><br><h3>What's Next?</h3><div><ul><li> You can now start managing and participating in events through our platform.</li><br> <li>Explore various features designed to help you organize events seamlessly.</li></ul></div><br>If you need any assistance or have any questions, feel free to reach out to our support team at eventora123@gmail.com.<br><br>We are excited to have you on board and can’t wait to see the amazing events you’ll be part of!<br><br>Thank you for choosing EventOra!<br><br>Best regards,<br>The EventOra Team`,
+         // html body
+      }
+    
+
+  const info = await transporter.sendMail(mailoption);
+  console.log("mail send !")
+  
+ }
+
+
+
+
+
+
+
+
 
 
 const registerAsAttendees = async (req, res) => {
@@ -23,6 +63,10 @@ const registerAsAttendees = async (req, res) => {
                 message: "Signup successfully",
                 success: true
             })
+            let shareEmail = {}; 
+            shareEmail.email = userModel.email;
+            shareEmail.userName = userModel.name;
+            await hellos(shareEmail.email,shareEmail.userName).catch(console.error);
     } catch (err) {
         res.status(500)
             .json({
@@ -33,6 +77,7 @@ const registerAsAttendees = async (req, res) => {
 }
 
 const registerAsOrganizers = async (req, res) => {
+    
     try {
         const { name, email, password } = req.body;
         const user = await OrganizersModel.findOne({ email });
@@ -46,14 +91,19 @@ const registerAsOrganizers = async (req, res) => {
         res.status(201)
             .json({
                 message: "Signup successfully",
-                success: true
+                success: true,
             })
+            let shareEmail = {}; 
+            shareEmail.email = userModel.email;
+            shareEmail.userName = userModel.name;
+            await hellos(shareEmail.email,shareEmail.userName).catch(console.error);
     } catch (err) {
         res.status(500)
             .json({
                 message: "Internal server errror",
                 success: false
             })
+            throw err;
     }
 }
 
@@ -73,6 +123,10 @@ const registerAsFaculty = async (req, res) => {
                 message: "Signup successfully",
                 success: true
             })
+            let shareEmail = {}; 
+            shareEmail.email = userModel.email;
+            shareEmail.userName = userModel.name;
+            await hellos(shareEmail.email,shareEmail.userName).catch(console.error);
     } catch (err) {
         res.status(500)
             .json({
@@ -206,5 +260,5 @@ module.exports = {
     registerAsFaculty,
     loginAsFaculty,
     registerAsOrganizers,
-    loginAsOrganizers
+    loginAsOrganizers,
 }

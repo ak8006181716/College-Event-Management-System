@@ -69,7 +69,7 @@ export const About = () => {
     ]
 
   return (
-    <headmain className='bg-white w-full mt-16'>
+    <headmain className='bg-white w-full'>
 
       <main className='mt-12 text-center text-stone-600' >
         <h1 className='text-4xl font-bold m-4'>ABOUT-US</h1>
@@ -128,7 +128,7 @@ export const About = () => {
         </div>
       </main>
     <h1 className='text-center text-4xl  font-extrabold text-stone-600 mt-10'>
-    Meet The Minds Behind The EventOra
+    Meet The Minds Behind EventOra
     </h1>
     <div className=" Scrollbar flex flex-wrap justify-center gap-8 p-8">
      {cardData.map((card, index) => (

@@ -4,7 +4,7 @@ import { Link, Outlet } from 'react-router-dom';
 
 export const Register = () => {
   return (
-    <div className='min-h-screen flex flex-col p-8 items-center w-10/12'>
+    <div className='min-h-screen flex pt-28 flex-col p-8 items-center w-10/12'>
      <nav class="w-full p-8 text-xl" aria-label="Breadcrumb " >
         <ol class=" w-full justify-evenly inline-flex flex flex-row  space-x-1 md:space-x-2 rtl:space-x-reverse">
          <li class="inline-flex items-center">

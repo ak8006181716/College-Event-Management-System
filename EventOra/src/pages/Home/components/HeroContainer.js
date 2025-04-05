@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import m1 from "../../../assets/images/m1.jpg";
-import m2 from "../../../assets/images/m2.jpg";
+
 import m3 from "../../../assets/images/bg-test1.jpg"
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';

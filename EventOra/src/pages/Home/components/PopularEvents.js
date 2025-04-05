@@ -2,7 +2,7 @@ import React from 'react';
 import { EventCard } from '../../../components';
 import gsap from "gsap";
 import{ useGSAP} from "@gsap/react";
-import { useRef,useEffect } from 'react';
+import { useRef} from 'react';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,7 +15,7 @@ export const PopularEvents = () => {
   const helo6= useRef();
   
   useGSAP(()=>{
-    let tl = gsap.timeline()
+    
     gsap.from(helo1.current,{
      y:-100,
      opacity:0,

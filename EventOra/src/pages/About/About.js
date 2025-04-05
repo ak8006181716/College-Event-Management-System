@@ -47,22 +47,10 @@ export const About = () => {
 
   
     const cardData = [
-      {
-        title: "Rahul Kashyap",
-        role: "Backend Developer",
-        description: "Rahul is responsible for designing and implementing the server-side architecture for EventOra. He ensures the APIs are efficient, secure, and scalable.",
-        image: helpdesk,
-        
-      },
-      {
-        title: "Anshu Kumar",
-        role: "Backend Developer",
-        description: "Anshu focuses on database design and optimization for EventOra. She ensures data integrity and seamless communication between the backend and frontend",
-        image: helpdesk,
-      },
+     
       {
         title: "Ankit Kumar",
-        role: "Frontend Developer",
+        role: "Web Developer",
         description: "Ankit leads the frontend development of EventOra, crafting an intuitive and visually appealing user interface using modern frameworks like React.",
         image: helpdesk,
       }
